@@ -1,0 +1,65 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+
+
+}
+
+/* navbar */
+nav {
+    background-color: #3b599b;
+    color: white;
+
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+
+}
+
+nav ul {
+    background-color: aqua;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    /* display: flex; */
+}
+
+nav div {
+    <Label for ="About_us">About_us:</label>
+    <select id ="About_us" name="About_us">
+    <option value ="Mission">Mission</option>
+    <option value ="Vision">Vision</option>
+    
+
+}
+.nav-item{
+    position: relative;
+    padding: 13px 19px;
+    cursor: pointer;
+
+}
+.nav-item:hover{
+    background-color: bisque;
+
+}
+.nav item-dropdown:hover .dropdown-menu{
+    background-color: black;
+    color: blueviolet;
+}
+.dropdown-menu li:hover{
+    background-color: #ddd;
+}
+.dropdown-menu li:hover {
+
+}
+
+    
+    
