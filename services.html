@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEXCLOUD IT SOLUTIONS - Our Services</title>
+    <meta name="description" content="Explore the range of IT services offered by NEXCLOUD IT SOLUTIONS, including computer sales, repairs, networking, software support, and IT consultancy." />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- Base Styles & Reset --- */
+        :root {
+            --primary-color: #0a0f3d; /* Dark Blue */
+            --secondary-color: #00e0ff; /* Bright Cyan */
+            --accent-color: #0054d1; /* Medium Blue for hover */
+            --light-bg: #f3f6fb; /* Light background */
+            --dark-text: #1f1f1f; /* Dark text */
+            --light-text: #ffffff; /* Light text */
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .bg-light {
+            background-color: var(--light-bg);
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: #6c757d; /* Grey */
+            color: var(--light-text);
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-danger {
+            background-color: #dc3545; /* Red */
+            color: var(--light-text);
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- Header --- */
+        .main-header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo a:hover {
+            color: var(--secondary-color);
+        }
+
+        .main-nav .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .main-nav .nav-links li a {
+            color: var(--light-text);
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav .nav-links li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .main-nav .nav-links .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-nav .nav-links .dropdown-toggle::after {
+            content: '▼'; /* Dropdown arrow */
+            font-size: 0.7em;
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .main-nav .nav-links li:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            background-color: var(--primary-color);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            min-width: 160px;
+            z-index: 1;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+            padding: 10px 0;
+            top: calc(100% + 5px); /* Position below the parent link */
+            left: 0; /* Align with parent link */
+        }
+
+        .main-nav .nav-links li:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            padding: 0;
+        }
+
+        .dropdown-menu li a {
+            color: var(--light-text);
+            padding: 10px 20px;
+            display: block;
+            white-space: nowrap;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            text-decoration: none;
+        }
+
+        /* --- Hero Section (only for index.html, so not truly needed here, but keeping for consistency as per request) --- */
+        .hero-section {
+            background: linear-gradient(rgba(10, 15, 61, 0.8), rgba(10, 15, 61, 0.8)), url('https://via.placeholder.com/1600x600/0a0f3d/00e0ff?text=IT+Solutions+Background') no-repeat center center/cover;
+            color: var(--light-text);
+            text-align: center;
+            padding: 120px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+        }
+
+        .hero-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-section .btn {
+            font-size: 1.1rem;
+            padding: 15px 35px;
+        }
+
+        /* --- Section Headings --- */
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* --- About Section (for about.html, but included for consistent styling if needed on other pages) --- */
+        .about-section .about-content {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-light);
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .about-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- Services Section --- */
+        .services-section {
+            background-color: var(--light-bg); /* Ensure consistent background */
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px var(--shadow-light);
+            border-left: 6px solid var(--secondary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 224, 255, 0.2);
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #555;
+        }
+
+        /* --- Why Choose Us / Benefits Section (for index.html, but included for consistent styling if needed on other pages) --- */
+        .benefits-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .benefit-card {
+            flex: 1 1 280px; /* Allows cards to grow and shrink */
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 6px solid var(--primary-color);
+            box-shadow: 0 8px 16px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--secondary-color);
+        }
+
+        .benefit-card p {
+            font-weight: 500;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        /* --- Products Section (for index.html, but included for consistent styling if needed on other pages) --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 6px 18px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px var(--shadow-medium);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 180px; /* Fixed height for consistent card size */
+            object-fit: contain; /* Ensures the image fits without cropping */
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: #f0f0f0; /* Light background for images */
+        }
+
+        .product-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: auto; /* Pushes the title to the bottom if content is less */
+        }
+
+        /* --- Forms Section (for index.html, but included for consistent styling if needed on other pages) --- */
+        .form-section .main-form {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 8px 25px var(--shadow-light);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #f9fcff;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(0, 224, 255, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical; /* Allow vertical resizing */
+            min-height: 100px;
+        }
+
+        .main-form .btn {
+            width: auto;
+            margin-right: 15px;
+        }
+        .main-form .btn:last-child {
+            margin-right: 0;
+        }
+
+        /* --- Contact Section (for contact.html, but included for consistent styling if needed on other pages) --- */
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .contact-info a {
+            font-weight: 500;
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .social-links .social-icon {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 500;
+            min-width: 120px;
+        }
+
+        .social-links .social-icon:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+
+        .google-map {
+            margin-top: 40px;
+            border-radius: 12px;
+            overflow: hidden; /* Ensures iframe corners are rounded */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .google-map iframe {
+            width: 100%;
+            display: block; /* Remove extra space below iframe */
+        }
+
+        /* --- Footer --- */
+        .main-footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .main-footer p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+        @media (max-width: 992px) {
+            .main-nav .nav-links {
+                gap: 20px;
+            }
+
+            .hero-section h2 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header .container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .main-nav {
+                width: 100%;
+            }
+
+            .main-nav .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .main-nav .nav-links li {
+                width: 100%;
+                text-align: left;
+            }
+
+            .main-nav .nav-links li a {
+                padding: 8px 0;
+            }
+
+            .dropdown-menu {
+                position: static; /* Stack dropdown items normally */
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background-color: rgba(0, 0, 0, 0.2); /* Slightly darker background for nested items */
+                margin-top: 5px;
+                border-radius: 0;
+            }
+
+            .dropdown-menu li a {
+                padding-left: 30px; /* Indent dropdown items */
+            }
+
+            .hero-section {
+                padding: 80px 20px;
+                min-height: 400px;
+            }
+
+            .hero-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .section-padding {
+                padding: 50px 0;
+            }
+
+            .service-grid,
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+
+            .product-card img {
+                height: 150px;
+            }
+
+            .form-section .main-form {
+                padding: 30px 25px;
+            }
+
+            .social-links .social-icon {
+                margin: 5px;
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo a {
+                font-size: 24px;
+            }
+
+            .hero-section h2 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-card,
+            .benefit-card,
+            .product-card {
+                padding: 20px;
+            }
+
+            .product-card img {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo"><a href="index.html">DAREN IT SOLUTIONS</a></h1>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                  <li><a href="index.html">Home</a></li>
+                    <li>
+                        <a href="about.html" class="dropdown-toggle">About Us</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html#our-vision">Our Vision</a></li>
+                            <li><a href="about.html#our-mission">Our Mission</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="index.html#why-choose-us">Why Choose Us</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="services" class="services-section section-padding">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="service-grid">
+                    <article class="service-card">
+                        <h3>Computer Sales & Repairs</h3>
+                        <p>High-quality desktops, laptops, accessories, and expert repair services for all major brands. We diagnose and fix hardware and software issues efficiently to get you back up and running.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3>Electronic Supply</h3>
+                        <p>A wide range of electronic devices including high-performance printers, reliable routers, the latest mobile gadgets, and smart home devices. We source only the best quality products for our clients.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3>Networking Solutions</h3>
+                        <p>Professional setup, configuration, and maintenance of Local Area Networks (LAN) and Wide Area Networks (WAN) for both homes and businesses. Ensure seamless connectivity and secure data transfer.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3>Software Installation & Support</h3>
+                        <p>Comprehensive installation, licensing, and ongoing technical support for operating systems (Windows, macOS, Linux), essential antivirus software, and productivity suites like Microsoft Office and Adobe Creative Cloud.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3>IT Consultancy</h3>
+                        <p>Customized IT support and strategic advice for businesses and organizations of all sizes. From infrastructure planning to cybersecurity audits, we help optimize your technology for maximum efficiency and growth.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3>Data Recovery & Backup</h3>
+                        <p>Lost data? We offer professional data recovery services for hard drives, SSDs, and other storage devices. We also set up robust backup solutions to protect your valuable information from future loss.</p>
+                    </article>
+                </div>
+
+
+                                 <div class="social-links">
+ <a href="index.html#products" class="social-icon facebook">VIEW PRODUCTS</a>
+     </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 DAREN IT SERVICES. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
